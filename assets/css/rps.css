@@ -1,0 +1,25 @@
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+img{
+    width: 3em;
+}
+
+.btn-p1{
+    border: 2px solid #77bbff;
+    border-radius: 15px;
+    padding: 1em;
+}
+
+.btn-p2{
+    border: 2px solid #e93b3b;
+    border-radius: 55px;
+    padding: 1em;
+}
+
+.col-4{
+    display: flex;
+    justify-content: center;
+}
