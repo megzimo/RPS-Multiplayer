@@ -63,16 +63,16 @@ $(".btn-p1").on("click", function(){
 
 
 // // Check to see if both players have made a choice - if yes compare 
-playerList.on("value", function(snapshot){
-    let p1Data = snapshot.child("p1");
-    let p2Data = snapshot.child("p2");
+// playerList.on("value", function(snapshot){
+//     let p1Data = snapshot.child("p1");
+//     let p2Data = snapshot.child("p2");
 
-    if(p1Data.child("choice").exists() && p2Data.child("choice").exists()) {
-      compareChoices(p1Data, p2Data);
-      database.ref("/list").child("p1").child("choice").remove();
-      database.ref("/list").child("p2").child("chilce").remove();
-    }
-})
+//     if(p1Data.child("choice").exists() && p2Data.child("choice").exists()) {
+//       compareChoices(p1Data, p2Data);
+//       database.ref("/list").child("p1").child("choice").remove();
+//       database.ref("/list").child("p2").child("chilce").remove();
+//     }
+// })
     
 playerStats.on("child_added", function(snapshot){
     let pInfo = snapshot.val();
