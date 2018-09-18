@@ -9,33 +9,88 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/rps.css">
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC4zCxB-k5HL09onKOJ8LiMkcp1B_n2SX8",
+            authDomain: "rock-paper-scissors-d22fb.firebaseapp.com",
+            databaseURL: "https://rock-paper-scissors-d22fb.firebaseio.com",
+            projectId: "rock-paper-scissors-d22fb",
+            storageBucket: "",
+            messagingSenderId: "1031234570569"
+        };
+        firebase.initializeApp(config);
+    </script>
     <title>Rock, Paper, Scissors - Multiplayer</title>
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Rock, Paper, Scissors</h1>
-            <p class="lead">Play with a friend, or against the computer!</p>
+            <div class="row">
+                <div class="col-4">
+                    <iframe src="https://giphy.com/embed/b0I9c0NXRMS1W" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    <a href="https://giphy.com/gifs/rock-paper-scissors-b0I9c0NXRMS1W"></a>
+                </div>
+                <div class="col-8">
+                    <h1 class="display-4">Rock, Paper, Scissors</h1>
+                    <p class="lead">Play with a friend, or against the computer!</p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- On start of game this is displayed to get user name, then is hidden when submit button is pushed -->
+    <div class="user-input row">
+        <div class="col-6">
+            <div class="card">
+                <div class="form-group">
+                    <div class="card-body">
+                        <label>Who is playing?</label>
+                        <div class="row">
+                            <div class="col-8">
+                                <input type="text" class="form-control" id="player-name" placeholder="Player One">
+                            </div>
+                            <div class="col-4">
+                                <button type="submit" id="submit" class="btn btn-sm">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- SCORE DISPLAY -->
+    <div class="row score-update">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <p class="score-display"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The two cards with buttons for game choices -->
     <div class="row player-console">
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                    Player 1
+                    <!-- Name is displayed here after user clicks submit -->
+                    <p class="name-display"></p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
-                            <button class="btn-p1"><img src="assets/images/rock.png"></button>
+                            <button class="btn-p1" data-choice="rock"><img src="assets/images/rock.png"></button>
                         </div>
                         <div class="col-4">
-                            <button class="btn-p1"><img src="assets/images/paper.png"></button>
+                            <button class="btn-p1" data-choice="paper"><img src="assets/images/paper.png"></button>
                         </div>
                         <div class="col-4">
-                            <button class="btn-p1"><img src="assets/images/scissors.png"></button>
+                            <button class="btn-p1" data-choice="scissors"><img src="assets/images/scissors.png"></button>
                         </div>
                     </div>
                 </div>
@@ -44,29 +99,29 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                    Player 2
+                    <!-- Name is displayed here after user clicks submit -->
+                    <p class="c-display">Computer</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
-                            <button class="btn-p2"><img src="assets/images/rock.png"></button>
+                            <button class="btn-p2 p2-rock" disabled><img src="assets/images/rock.png"></button>
                         </div>
                         <div class="col-4">
-                            <button class="btn-p2"><img src="assets/images/paper.png"></button>
+                            <button class="btn-p2 p2-paper" disabled><img src="assets/images/paper.png"></button>
                         </div>
                         <div class="col-4">
-                            <button class="btn-p2"><img src="assets/images/scissors.png"></button>
+                            <button class="btn-p2 p2-scissors" disabled><img src="assets/images/scissors.png"></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
-
-
-    <script type="text/javascript" src="assets/js/rps.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/rps.js"></script>
 </body>
 
 </html>
